@@ -20,56 +20,62 @@
         .clr {
           width: 20px;
           text-align: right;
+          display: none;
+        }
+
+        .clr_1{
+          width: 20px;
+          text-align: right;
+        }
+
+        .no {
+            display:none;
         }
 
         input[type=submit] { 
             position:absolute;
             margin-top: 3px;
-            right:50px;
+            right:0px;
         }
 
-        input[type=number]::-webkit-inner-spin-button, 
+/*        input[type=number]::-webkit-inner-spin-button, 
         input[type=number]::-webkit-outer-spin-button { 
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
             margin: 0; 
-        }
+        }*/
         
     </style>
   </head>
   <body onload="main()" onresize="resize()" style="margin:0px;padding:0px;width:100%;height:100%;">
 
     <div id="left_div">
-        键盘移动控制:<p>
+    <h3>图像课期末作业：中文精简娱乐版 (键盘控制)</h3>
         1. 旋转镜头（朝上下左右）: W/S/A/D<p>
         2. 前后左右移动: I/K/J/L<p>
-        Lighting Method:
-        <select name="location" onchange="if (this.selectedIndex > -1) newLightingMethod(this.selectedIndex);">
+        
+        <select class = "no" name="location" onchange="if (this.selectedIndex > -1) newLightingMethod(this.selectedIndex);">
         <option value="0">Phong</option>
         <option value="1">Bling-Phong</option> 
         </select><p>
-        Shading Method:
-        <select name="location" onchange="if (this.selectedIndex > -1) newShadingMethod(this.selectedIndex);">
+        <select class = "no" name="location" onchange="if (this.selectedIndex > -1) newShadingMethod(this.selectedIndex);">
         <option value="0">Phong</option>
         <option value="1">Gouraud</option> 
         </select>
     </div>
 
     <div id="right_div">
-        照相机头灯开关: R <p>
-        二号灯开关: F<p>
-        二号灯颜色条街(红绿蓝, 改第二行数字):
-        <form id="lightAdjustment" onsubmit="newLightColor();return false;">
-        Ambient: <input class= 'clr' type="number" step="any" name="aR" value="0.2">
-        <input class= 'clr'  type="number" step="any" name="aG" value="0.2">
-        <input class= 'clr'  type="number" step="any" name="aB" value="0.2"><br>
-        Diffuse: &nbsp&nbsp<input class= 'clr'  type="number" step="any" name="dR" value="1.0">
-        <input class= 'clr'  type="number" step="any" name="dG" value="1.0">
-        <input class= 'clr'  type="number" step="any" name="dB" value="1.0"><br>
-        Specular: <input class= 'clr'  type="number" step="any" name="sR" value="1.0">
+        照相机头灯开关: R  (默认开)<p>
+        二号灯开关: F （默认关)<p>
+        二号灯颜色调节(先开灯才有用):<p>
+        <form id="lightAdjustment" onsubmit="newLightColor();return false;"><input class= 'clr' type="number" step="any" name="aR" value="0.2"><input class= 'clr'  type="number" step="any" name="aG" value="0.2"><input class= 'clr'  type="number" step="any" name="aB" value="0.2">
+        红:<input class= 'clr_1'  type="number" step="any" name="dR" value="1.0">&nbsp绿:
+        <input class= 'clr_1'  type="number" step="any" name="dG" value="1">&nbsp蓝:
+        <input class= 'clr_1'  type="number" step="any" name="dB" value="1">
+        <input class= 'clr'  type="number" step="any" name="sR" value="1">
         <input class= 'clr'  type="number" step="any" name="sG" value="1.0">
-        <input class= 'clr'  type="number" step="any" name="sB" value="1.0"><br>
+        <input class= 'clr'  type="number" step="any" name="sB" value="1.0">
         <input type="submit" value="提交"><br><br>  
         </form>
         二号灯位置:
